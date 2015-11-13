@@ -1,0 +1,2 @@
+1 = home screen
+2 = menu active

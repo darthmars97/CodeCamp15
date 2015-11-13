@@ -33,6 +33,7 @@ class UI:
 
 						if self.newMenu.get_rect().collidepoint(mouseX, mouseY):
 							print "clicked on menu icon"
+							self.screen == 2
 
 				if event.type == QUIT:
 					pygame.quit()
