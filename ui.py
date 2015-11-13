@@ -45,8 +45,8 @@ class UI:
 
 			navBar = pygame.image.load("Images/NavbarMain.png")
 			nW, nH = navBar.get_size()
-			self.newNav = pygame.transform.scale(navBar, (nW / 2, nH / 3))
-			self.surface.blit(self.newNav, (0, 0))
+			self.newNav = pygame.transform.scale(navBar, (nW / 2, nH / 2))
+			self.surface.blit(self.newNav, (-60, -2))
 
 			menuIcon = pygame.image.load("Images/Menu Button.png")
 			mW, mH = menuIcon.get_size()
@@ -55,10 +55,10 @@ class UI:
 
 		elif self.screen == 2:
 
-			menuScreen = pygame.image.load("Images/")
+			menuScreen = pygame.image.load("Images/MenuBackground.png")
 			sW, sH = menuScreen.get_size()
 			self.newMenuScreen = pygame.transform.scale(menuScreen, (sW, sH))
-			self.surface.blit(self.newMenuScreen, (x, y))
+			self.surface.blit(self.newMenuScreen, (0, 0))
 
 
 	# def mouseClick(self):
