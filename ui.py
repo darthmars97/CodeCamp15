@@ -17,6 +17,8 @@ class UI:
 		self.running = True
 		while self.running:
 			for event in pygame.event.get():
+				if event.type == pygame.MOUSEBUTTONDOWN:
+					pygame.mouse.set_pos(100, 100)
 				if event.type == QUIT:
 					pygame.quit()
 					sys.exit()
