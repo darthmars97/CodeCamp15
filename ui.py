@@ -15,6 +15,7 @@ class UI:
 		self.fpsClock = pygame.time.Clock()
 		self.surface = pygame.display.set_mode((self.width, self.height))
 		self.surface.fill((255, 255, 255))
+		self.screen = 1
 		self.menu()
 		self.evolve()
 
@@ -23,7 +24,16 @@ class UI:
 		while self.running:
 			for event in pygame.event.get():
 				if event.type == pygame.MOUSEBUTTONDOWN:
-					pygame.mouse.set_pos(100, 100)
+					
+					if self.screen == 1:
+						mouseX, mouseY = event.pos
+
+						if self.newNav.get_rect().collidepoint(mouseX, mouseY):
+							print "clicked on nav bar"
+
+						if self.newMenu.get_rect().collidepoint(mouseX, mouseY):
+							print "clicked on menu icon"
+
 				if event.type == QUIT:
 					pygame.quit()
 					sys.exit()
@@ -39,6 +49,14 @@ class UI:
 		mW, mH = menuIcon.get_size()
 		self.newMenu = pygame.transform.scale(menuIcon, (mW / 2, mH / 2))
 		self.surface.blit(self.newMenu, (self.width - 70, 12))
+
+	# def mouseClick(self):
+	# 	mouseX, mouseY = event.pos()
+	# 	if self.newNav.collidepoint(mouseX, mouseY):
+	# 		print "clicked on nav bar"
+
+	# 	if self.newMenu.collidepoint(mouseX, mouseY):
+	# 		print "clicked on menu icon"
 
 
 if __name__ == "__main__":
