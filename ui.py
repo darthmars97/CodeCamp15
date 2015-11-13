@@ -14,6 +14,7 @@ class UI:
 		self.fps = fps
 		self.fpsClock = pygame.time.Clock()
 		self.surface = pygame.display.set_mode((self.width, self.height))
+		self.surface.fill((255, 255, 255))
 		self.menu()
 		self.evolve()
 
@@ -29,14 +30,15 @@ class UI:
 			pygame.display.update()
 
 	def menu(self):
+		navBar = pygame.image.load("Images/Navbar Images/Navbar.png")
+		nW, nH = navBar.get_size()
+		self.newNav = pygame.transform.scale(navBar, (nW / 2, nH / 3))
+		self.surface.blit(self.newNav, (0, 0))
+
 		menuIcon = pygame.image.load("Images/Navbar Images/Menu Icon.png")
 		mW, mH = menuIcon.get_size()
 		self.newMenu = pygame.transform.scale(menuIcon, (mW / 2, mH / 2))
-		self.surface.blit(self.newMenu, (self.width - 70, 20))
-
-		navBar = pygame.image.load("Images/Navbar Images/Navbar.png")
-		nW, nH = navBar.get_size()
-		self.surface.blit(navBar, (0, 0))
+		self.surface.blit(self.newMenu, (self.width - 70, 12))
 
 
 if __name__ == "__main__":
