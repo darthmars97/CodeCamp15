@@ -8,6 +8,7 @@ class UI:
 
 	def __init__(self, width, height, fps):
 		pygame.init()
+		pygame.display.set_caption("StockNotes")
 		self.width = width
 		self.height = height
 		self.fps = fps
@@ -28,8 +29,15 @@ class UI:
 			pygame.display.update()
 
 	def menu(self):
-		self.menuIcon = pygame.image.load("Images/Navbar Images/Menu Icon.png")
-		surface.blit(self.menuIcon, (10, 10))
+		menuIcon = pygame.image.load("Images/Navbar Images/Menu Icon.png")
+		mW, mH = menuIcon.get_size()
+		self.newMenu = pygame.transform.scale(menuIcon, (mW / 2, mH / 2))
+		self.surface.blit(self.newMenu, (self.width - 70, 20))
+
+		navBar = pygame.image.load("Images/Navbar Images/Navbar.png")
+		nW, nH = navBar.get_size()
+		self.surface.blit(navBar, (0, 0))
+
 
 if __name__ == "__main__":
 	UI(414, 736, 30)
