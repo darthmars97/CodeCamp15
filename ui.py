@@ -48,10 +48,15 @@ class UI:
 			self.newNav = pygame.transform.scale(navBar, (nW / 2, nH / 2))
 			self.surface.blit(self.newNav, (-60, -2))
 
-			menuIcon = pygame.image.load("Images/Menu Button.png")
+			menuIcon = pygame.image.load("Images/MenuButton.png")
 			mW, mH = menuIcon.get_size()
 			self.newMenu = pygame.transform.scale(menuIcon, (mW / 2, mH / 2))
 			self.surface.blit(self.newMenu, (self.width - 70, 12))
+
+			notes = pygame.image.load("Images/NoteIcon.png")
+			nW, nH = notes.get_size()
+			self.newNote = pygame.transform.scale(notes, (nW, nH))
+			self.surface.blit(self.newNote, (0, 0))
 
 		elif self.screen == 2:
 
