@@ -23,4 +23,4 @@ class UI:
 			pygame.display.update()
 
 if __name__ == "__main__":
-	UI(600, 400, 60)
+	UI(414, 736, 60)
