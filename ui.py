@@ -79,7 +79,7 @@ class UI:
 			sW, sH = menuScreen.get_size()
 			self.newMenuScreen = pygame.transform.scale(menuScreen, (sW, sH))
 			self.newMenuScreen.set_colorkey((99, 99, 99))
-			self.surface.blit(self.newMenuScreen, (-2, -2))
+			self.surface.blit(self.newMenuScreen, (-250, -2))
 
 
 	# def mouseClick(self):
