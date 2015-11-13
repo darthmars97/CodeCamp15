@@ -2,24 +2,31 @@ import pygame, time, random
 import operator
 import os
 import os.path
+status = "off"
 PIN = ""
+name = ""
 def write():
 	ask = raw_input("If you have an account press y and if you dont, press n ")
 	if ask == "y":
-		pinnum = int(raw_input("Enter your PIN: "))
-		pinstr = str(pinnum)
-
-		meh = os.path.exists('C:\Users\Dylan\Documents\GitHub\CodeCamp15\\5050.txt')
-		print meh
-		if os.path.exists('C:\Users\Dylan\Documents\GitHub\CodeCamp15\\%s')%(pinstr):
-			print "yes"
-		elif os.path.exists('C:\Users\Dylan\Documents\GitHub\CodeCamp15\\%s')%(pinstr) != True:
-			print "no"
+		while status == "off":
+			names = raw_input("Enter your pin: ")+".txt"
+			if os.path.exists(names):
+				name = names
+				status = "on"
+			else:
+				print "This pin does not exist" 
 
 	elif ask == "n":
-		name = raw_input("What do you want your PIN to be? ")
-		newfile = open(name+'.txt','w')   # Trying to create a new file or open one
-		newfile.close()
+		status = "off"
+		while status == "off":	
+			name = raw_input("Enter your desired 4 digit pin: ")+".txt"
+			os.system('cls')
+			if os.path.exists(name):
+				print "That pin is already taken, try another one"
+			else:
+				open(name, "a")
+				print "Congrats your pin now created"
+				status = "on"
 
 	else:
 		print "print y or n dummy"
