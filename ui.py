@@ -1,5 +1,6 @@
 import pygame, sys
 from pygame.locals import *
+import time
 
 # This controls user interface
 
@@ -10,7 +11,9 @@ class UI:
 		self.width = width
 		self.height = height
 		self.fps = fps
+		self.fpsClock = pygame.time.Clock()
 		self.surface = pygame.display.set_mode((self.width, self.height))
+		self.menu()
 		self.evolve()
 
 	def evolve(self):
@@ -24,5 +27,9 @@ class UI:
 					sys.exit()
 			pygame.display.update()
 
+	def menu(self):
+		self.menuIcon = pygame.image.load("Images/Navbar Images/Menu Icon.png")
+		surface.blit(self.menuIcon, (10, 10))
+
 if __name__ == "__main__":
-	UI(414, 736, 60)
+	UI(414, 736, 30)
