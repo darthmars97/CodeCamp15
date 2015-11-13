@@ -1,5 +1,5 @@
-import pygame
-import pygame.locals
+import pygame, sys
+from pygame.locals import *
 
 # This controls user interface
 
@@ -11,12 +11,13 @@ class UI:
 		self.height = height
 		self.fps = fps
 		self.surface = pygame.display.set_mode((self.width, self.height))
+		self.evolve()
 
 	def evolve(self):
 		self.running = True
 		while self.running:
 			for event in pygame.event.get():
-				if event.type == QUIT():
+				if event.type == QUIT:
 					pygame.quit()
 					sys.exit()
 			pygame.display.update()
