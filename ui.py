@@ -9,7 +9,9 @@ class UI:
 
 	def __init__(self, width, height, fps):
 		pygame.init()
+		pygame.font.init()
 		pygame.display.set_caption("StockNotes")
+		self.songNameFont = pygame.font.SysFont("Gujarati Sangam MN", 26)
 		self.width = width
 		self.height = height
 		self.fps = fps
@@ -67,7 +69,19 @@ class UI:
 				if event.type == QUIT:
 					pygame.quit()
 					sys.exit()
+				elif event.type ==KEYDOWN:
+					if event.key == KEY_ESCAPE:
+						pygame.quit()
+						sys.exit()
 			pygame.display.update()
+
+	def drawSongName(self, surface, text, color, y, font):
+		textobj = font.render(text, False, color)
+		textrect = textobj.get_rect()
+		textrect.bottomleft = (135, y)
+		surface.blit(textobj, textrect)
+		return
+
 
 	def display(self):
 		if self.screen == 0:
@@ -146,12 +160,17 @@ class UI:
 			albumFrame = pygame.image.load("Images/AlbumFrame.png")
 			aW, aH = albumFrame.get_size()
 			self.albumFrame = pygame.transform.scale(albumFrame, (aW / 2, aH / 2))
-			self.surface.blit(self.albumFrame, (20, 160))
+			self.surface.blit(self.albumFrame, (15, 160))
 
 			noteLine = pygame.image.load("Images/MainNoteLine.png")
 			lW, lH = noteLine.get_size()
 			self.noteLine = pygame.transform.scale(noteLine, (lW / 2, lH / 2))
 			self.surface.blit(self.noteLine, (130, 232))
+
+			songName = "Song Name"
+			songY = 250
+			self.drawSongName(self.surface, songName, (0, 0, 0), songY, self.songNameFont)
+
 
 		elif self.screen == 2:
 
