@@ -37,10 +37,11 @@ songs = {
 	'Where Ya At - Future feat Drake': 10,
 }
 
-
+rest_count = 0
 
 
 def tick():
+
 	#ops = (add, sub)
 	#randomizes + or -
 	#op = random.choice(ops)
@@ -58,17 +59,18 @@ def tick():
 		num = songs[ransong] - random.randint(1,5)
 
 
-
-
 	#rannum = op(songs[ransong], num)
-	
+
 	if num < 0:
 		songs[ransong] = 0
 	elif num >= 0:
 		songs[ransong] = num
-
-	time.sleep(2)
-	os.system('cls')
+	if rest_count <= 4:
+		print "your mom"
+		rest_count +=1
+		print restCount
+		time.sleep(2)
+	os.system('clear')
 	print rannum
 	sortedx = sorted(songs.items(), key=operator.itemgetter(1))
 	sortedd = sortedx.reverse()
@@ -76,9 +78,9 @@ def tick():
 		print i
 
 	#for i in songs:
-		#print i, songs[i]	
+		#print i, songs[i]
 
 
-while True:
+while rest_count <= 4:
+	print rest_count
 	tick()
-

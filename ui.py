@@ -1,7 +1,7 @@
 import pygame, sys
 from pygame.locals import *
 import time
-from graphtec import *
+
 
 # This controls user interface
 

@@ -1,16 +1,21 @@
 # Import a library of functions called 'pygame'
 import pygame
 from math import pi
+from randomizer import resetcounter
 
+"""
+posx = 100 * resetCounter
+
+posy = (())
+
+points {
+    [posx, posy],
+}"""
 # Initialize the game engine
 pygame.init()
 
 # Define the colors we will use in RGB format
-BLACK = (  0,   0,   0)
 WHITE = (255, 255, 255)
-BLUE =  (  0,   0, 255)
-GREEN = (  0, 255,   0)
-RED =   (255,   0,   0)
 ORANGE = (249, 160, 27)
 
 # Set the height and width of the screen
@@ -39,42 +44,9 @@ while not done:
     # Clear the screen and set the screen background
     screen.fill(WHITE)
 
-    # Draw on the screen a GREEN line from (0,0) to (50.75)
-    # 5 pixels wide.
-    #pygame.draw.line(screen, ORANGE, [0, 0], [50,30], 5)
 
-    # Draw on the screen a GREEN line from (0,0) to (50.75)
-    # 5 pixels wide.
     pygame.draw.lines(screen, ORANGE, False, [[0, 300], [100, 10], [200, 150], [300, 65], [400, 200]], 10)
 
-    # Draw on the screen a GREEN line from (0,0) to (50.75)
-    # 5 pixels wide.
-    #pygame.draw.aaline(screen, ORANGE, [0, 50],[50, 80], True)
-
-    # Draw a rectangle outline
-    #pygame.draw.rect(screen, ORANGE, [75, 10, 50, 20], 2)
-
-    # Draw a solid rectangle
-    #pygame.draw.rect(screen, BLACK, [150, 10, 50, 20])
-
-    # Draw an ellipse outline, using a rectangle as the outside boundaries
-    #pygame.draw.ellipse(screen, RED, [225, 10, 50, 20], 2)
-
-    # Draw an solid ellipse, using a rectangle as the outside boundaries
-    #pygame.draw.ellipse(screen, RED, [300, 10, 50, 20])
-
-    # This draws a triangle using the polygon command
-    #pygame.draw.polygon(screen, ORANGE, [[100, 100], [0, 200], [200, 200]], 5)
-
-    # Draw an arc as part of an ellipse.
-    # Use radians to determine what angle to draw.
-    '''pygame.draw.arc(screen, BLACK,[210, 75, 150, 125], 0, pi/2, 2)
-    pygame.draw.arc(screen, GREEN,[210, 75, 150, 125], pi/2, pi, 2)
-    pygame.draw.arc(screen, BLUE, [210, 75, 150, 125], pi,3*pi/2, 2)
-    pygame.draw.arc(screen, RED,  [210, 75, 150, 125], 3*pi/2, 2*pi, 2)'''
-
-    # Draw a circle
-    #pygame.draw.circle(screen, BLUE, [60, 250], 40)
 
     # Go ahead and update the screen with what we've drawn.
     # This MUST happen after all the other drawing commands.
