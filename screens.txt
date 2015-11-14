@@ -1,3 +1,4 @@
+0 = login
 1 = home screen
 2 = menu active
 3 = profile

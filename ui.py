@@ -18,7 +18,7 @@ class UI:
 		self.surface = pygame.display.set_mode((self.width, self.height))
 		# self.intermediate = pygame.surface.Surface(self.width, self.height + 600)
 		self.surface.fill((255, 255, 255))
-		self.screen = 1
+		self.screen = 0
 		self.display()
 		self.evolve()
 
@@ -27,6 +27,14 @@ class UI:
 		while self.running:
 			for event in pygame.event.get():
 				if event.type == pygame.MOUSEBUTTONDOWN:
+
+					if self.screen == 0:
+						mouseX, mouseY = event.pos
+
+						if self.enterRect.collidepoint(mouseX, mouseY):
+							self.screen = 1
+							self.display()
+							pygame.display.update()
 
 					if self.screen == 1:
 						mouseX, mouseY = event.pos
@@ -63,7 +71,44 @@ class UI:
 			pygame.display.update()
 
 	def display(self):
-		if self.screen == 1:
+		if self.screen == 0:
+
+			background = pygame.image.load("Images/LoginPage.png")
+			loginW, loginH = background.get_size()
+			self.background = pygame.transform.scale(background, (loginW / 2, loginH / 2))
+			self.surface.blit(self.background, (-10, -9))
+
+			welcome = pygame.image.load("Images/WelcomeBack.png")
+			wW, wH = welcome.get_size()
+			self.welcome = pygame.transform.scale(welcome, (wW / 2, wH / 2))
+			self.surface.blit(self.welcome, (80, 360))
+
+			username = pygame.image.load("Images/Username.png")
+			uW, uH = username.get_size()
+			self.username = pygame.transform.scale(username, (uW / 2, uH / 2))
+			self.surface.blit(self.username, (70, 410))
+
+			userText = pygame.image.load("Images/LoginTextBox.png")
+			userW, userH = userText.get_size()
+			self.userText = pygame.transform.scale(userText, (userW / 3, userH / 3))
+			self.surface.blit(self.userText, (60, 440))
+
+			password = pygame.image.load("Images/Password.png")
+			passW, passH = password.get_size()
+			self.password = pygame.transform.scale(password, (passW / 2, passH / 2))
+			self.surface.blit(self.password, (70, 480))
+
+			passField = pygame.image.load("Images/LoginTextBox.png")
+			self.passField = pygame.transform.scale(passField, (userW / 3, userH / 3))
+			self.surface.blit(self.passField, (60, 510))
+
+			enter = pygame.image.load("Images/EnterButton.png")
+			enterW, enterH = enter.get_size()
+			self.enter = pygame.transform.scale(enter, (enterW / 3, enterH / 3))
+			self.surface.blit(self.enter, (140, 550))
+			self.enterRect = Rect(140, 550, enterW / 3, enterH / 3)
+
+		elif self.screen == 1:
 
 			self.surface.fill((255, 255, 255))
 
@@ -161,6 +206,11 @@ class UI:
 			self.backProfile = pygame.transform.scale(backProfile, (bW / 2, bH / 2))
 			self.surface.blit(self.backProfile, (0, 0))
 			self.backRect = Rect(0, 0, bW / 2, bH / 2)
+
+			image = pygame.image.load("Images/Profile.png")
+			mW, mH = image.get_size()
+			self.profileImage = pygame.transform.scale(image, (mW / 3, mH / 3))
+			self.surface.blit(self.profileImage, (155, 150))
 
 
 
