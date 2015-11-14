@@ -41,9 +41,14 @@ songs = {
 
 
 
+<<<<<<< HEAD
 rest_count = 1 
 def tick():
 	global rest_count
+=======
+rest_count = 0
+while rest_count < 25:
+>>>>>>> origin/master
 	#ops = (add, sub)
 	#randomizes + or -
 	#op = random.choice(ops)
@@ -72,14 +77,19 @@ def tick():
 
 
 	#rannum = op(songs[ransong], num)
-	
+
 	if num < 0:
 		songs[ransong] = 0
 	elif num >= 0:
 		songs[ransong] = num
 
+<<<<<<< HEAD
 	time.sleep(4)
 	os.system('cls')
+=======
+	#time.sleep(2)
+	os.system('clear')
+>>>>>>> origin/master
 	print rannum
 	sortedx = sorted(songs.items(), key=operator.itemgetter(1))
 	sortedd = sortedx.reverse()
@@ -88,6 +98,7 @@ def tick():
 
 	#for i in songs:
 		#print i, songs[i]
+<<<<<<< HEAD
 	print rest_count	
 	rest_count = rest_count + 1
 	return rest_count
@@ -95,3 +106,7 @@ while rest_count < 5:
 	tick()
 
 
+=======
+	rest_count += 1
+	print rest_count
+>>>>>>> origin/master
