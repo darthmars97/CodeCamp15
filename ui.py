@@ -141,27 +141,27 @@ class UI:
 			username = pygame.image.load("Images/Username.png")
 			uW, uH = username.get_size()
 			self.username = pygame.transform.scale(username, (uW / 2, uH / 2))
-			self.surface.blit(self.username, (70, 410))
+			self.surface.blit(self.username, (60, 410))
 
 			userText = pygame.image.load("Images/LoginTextBox.png")
 			userW, userH = userText.get_size()
-			self.userText = pygame.transform.scale(userText, (userW / 3, userH / 3))
-			self.surface.blit(self.userText, (60, 440))
+			self.userText = pygame.transform.scale(userText, (userW / 2, userH / 3))
+			self.surface.blit(self.userText, (50, 440))
 
 			password = pygame.image.load("Images/Password.png")
 			passW, passH = password.get_size()
 			self.password = pygame.transform.scale(password, (passW / 2, passH / 2))
-			self.surface.blit(self.password, (70, 480))
+			self.surface.blit(self.password, (60, 480))
 
 			passField = pygame.image.load("Images/LoginTextBox.png")
-			self.passField = pygame.transform.scale(passField, (userW / 3, userH / 3))
-			self.surface.blit(self.passField, (60, 510))
+			self.passField = pygame.transform.scale(passField, (userW / 2, userH / 3))
+			self.surface.blit(self.passField, (50, 510))
 
 			enter = pygame.image.load("Images/EnterButton.png")
 			enterW, enterH = enter.get_size()
 			self.enter = pygame.transform.scale(enter, (enterW / 3, enterH / 3))
-			self.surface.blit(self.enter, (140, 550))
-			self.enterRect = Rect(140, 550, enterW / 3, enterH / 3)
+			self.surface.blit(self.enter, (180, 550))
+			self.enterRect = Rect(180, 550, enterW / 3, enterH / 3)
 
 			signUp = pygame.image.load("Images/SignUpButton.png")
 			signUpW, signUpH = signUp.get_size()
@@ -216,7 +216,7 @@ class UI:
 			self.drawSongName(self.surface, songName, (0, 0, 0), songX, songY, self.songNameFont)
 
 			notes = 2048
-			notesX = 100
+			notesX = 50
 			notesY = 100
 			self.drawMainNotes(self.surface, str(notes), (255, 255, 255), notesX, notesY, self.notesFont)
 
