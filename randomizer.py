@@ -122,8 +122,10 @@ def tick():
 	print rest_count
 	rest_count = rest_count + 1
 	return rest_count
-
-while rest_count < 7:
-	tick()
-	hello.append(str(songs["Hello - Adele"]))
-	print hello
+def main():
+	while rest_count < 7:
+		tick()
+		hello.append(str(songs["Hello - Adele"]))
+		print hello
+if __name__ == "__main__":
+	main() 

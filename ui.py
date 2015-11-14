@@ -110,6 +110,7 @@ class UI:
 
 
 	def display(self):
+
 		if self.screen == 0:
 
 			background = pygame.image.load("Images/LoginPage.png")

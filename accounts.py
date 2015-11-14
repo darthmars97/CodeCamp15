@@ -15,6 +15,7 @@ if ask == "y":
 		if os.path.exists(names):
 			name = names
 			status = "on"
+			print "You are now logged in"
 		else:
 			print "This username does not exist" 
 #SIGNUP
@@ -38,7 +39,6 @@ while status == "on":
 			myfile.write(basemoney)
 	else:
 		pass
-print money
 
 #ADDS THE NUMBER TO THE FILE 
 	filen = open(name, "w")
