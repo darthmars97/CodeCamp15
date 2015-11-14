@@ -42,6 +42,19 @@ class UI:
 							self.display()
 							pygame.display.update()
 
+						elif self.profileRect.collidepoint(mouseX, mouseY):
+							self.screen = 3
+							self.display()
+							pygame.display.update()
+
+					if self.screen == 3:
+						mouseX, mouseY = event.pos
+
+						if self.backRect.collidepoint(mouseX, mouseY):
+							self.screen = 2
+							self.display()
+							pygame.display.update()
+
 				if event.type == QUIT:
 					pygame.quit()
 					sys.exit()
@@ -75,6 +88,8 @@ class UI:
 
 		elif self.screen == 2:
 
+			self.surface.fill((255, 255, 255))
+
 			navBar = pygame.image.load("Images/NavbarMain.png")
 			nW, nH = navBar.get_size()
 			self.newNav = pygame.transform.scale(navBar, (nW / 2, nH / 2))
@@ -106,10 +121,22 @@ class UI:
 			pW, pH = profileButton.get_size()
 			self.newProfile = pygame.transform.scale(profileButton, (pW / 3, pH / 3))
 			self.surface.blit(self.newProfile, (self.width - 250, 100))
+			self.profileRect = Rect(self.width - 250, 100, pW / 3, pH / 3)
 
 		elif self.screen == 3:
 
-			
+			self.surface.fill((255, 255, 255))
+
+			navProfile = pygame.image.load("Images/NavbarProfile.png")
+			navW, navH = navProfile.get_size()
+			self.navBarProfile = pygame.transform.scale(navProfile, (navW / 2, navH / 2))
+			self.surface.blit(self.navBarProfile, (0, -1))
+
+			backProfile = pygame.image.load("Images/BackButton.png")
+			bW, bH = backProfile.get_size()
+			self.backProfile = pygame.transform.scale(backProfile, (bW / 2, bH / 2))
+			self.surface.blit(self.backProfile, (0, 0))
+			self.backRect = Rect(0, 0, bW / 2, bH / 2)
 
 
 
