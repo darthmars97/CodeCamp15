@@ -33,6 +33,7 @@ class UI:
 							print "clicked on menu icon"
 							self.screen = 2
 							print self.screen
+							self.display()
 							pygame.display.update()
 							print "I'm Working properly Matt! :D"
 
@@ -84,7 +85,7 @@ class UI:
 			self.newNote = pygame.transform.scale(notes, (nW, nH))
 			self.surface.blit(self.newNote, (0, 0))
 
-			menuScreen = pygame.image.load("Images/MenuBackground.png")
+			menuScreen = pygame.image.load("Images/MenuBackgroundOriginal.png")
 			sW, sH = menuScreen.get_size()
 			self.newMenuScreen = pygame.transform.scale(menuScreen, (sW, sH))
 			self.newMenuScreen.set_colorkey((99, 99, 99))
