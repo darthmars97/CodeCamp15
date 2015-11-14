@@ -481,6 +481,16 @@ class UI:
 			self.buy10 = pygame.transform.scale(buy10, (b10W / 3, b10H / 3))
 			self.surface.blit(self.buy10, (155, 545))
 
+			buy1 = pygame.image.load("Images/1Button.png")
+			b1W, b1H = buy1.get_size()
+			self.buy1 = pygame.transform.scale(buy1, (b1W / 3, b1H / 3))
+			self.surface.blit(self.buy1, (70, 553))
+
+			buy100 = pygame.image.load("Images/100Button.png")
+			b100W, b100H = buy100.get_size()
+			self.buy100 = pygame.transform.scale(buy100, (b100W / 3, b100H / 3))
+			self.surface.blit(self.buy100, (250, 537))
+
 
 		pygame.display.update()
 
