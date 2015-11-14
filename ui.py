@@ -57,7 +57,7 @@ class UI:
 			self.newTitle = pygame.transform.scale(title, (tW / 2, tH / 2))
 			self.surface.blit(self.newTitle, (110, 5))
 
-			menuIcon = pygame.image.load("Images/MenuButton.png")
+			menuIcon = pygame.image.load("Images/MenuButtonLong.png")
 			mW, mH = menuIcon.get_size()
 			self.newMenu = pygame.transform.scale(menuIcon, (mW / 2, mH / 2))
 			self.surface.blit(self.newMenu, (self.width - 70, 12))
@@ -74,7 +74,7 @@ class UI:
 			self.newNav = pygame.transform.scale(navBar, (nW / 2, nH / 2))
 			self.surface.blit(self.newNav, (-60, -2))
 
-			menuIcon = pygame.image.load("Images/MenuButton.png")
+			menuIcon = pygame.image.load("Images/MenuButtonLong.png")
 			mW, mH = menuIcon.get_size()
 			self.newMenu = pygame.transform.scale(menuIcon, (mW / 2, mH / 2))
 			self.surface.blit(self.newMenu, (self.width - 70, 12))
