@@ -1,12 +1,12 @@
 # Import a library of functions called 'pygame'
 import pygame, turtle
 from math import pi
-from randomizer import songs
+from randomizer import songs, hello
 import matplotlib.pyplot as plt
 
 
 radius = [1.0, 2.0, 3.0, 4.0, 5.0, 6.0]
-area = [20, 12.56636, 28.27431, 50.26544, 78.53975, 113.09724]
+area = [int(hello[0]), int(hello[1]), int(hello[2]), int(hello[3]), int(hello[4]), int(hello[5])]
 square = [20, 4.0, 9.0, 16.0, 25.0, 36.0]
 plt.plot(radius, area, label='lol')
 plt.plot(radius, square, marker='o', linestyle='--', color='r', label='Square')

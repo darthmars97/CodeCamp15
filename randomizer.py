@@ -91,9 +91,9 @@ def tick():
 	rest_count = rest_count + 1
 	return rest_count
 
-while rest_count < 5:
+while rest_count < 7:
 	tick()
-	hello.extend(str(songs["Hello - Adele"]))
+	hello.append(str(songs["Hello - Adele"]))
 	print hello
 
 
