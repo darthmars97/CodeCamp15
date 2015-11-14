@@ -168,7 +168,7 @@ class UI:
 			self.surface.blit(self.noteLine, (130, 232))
 
 			songName = "Song Name"
-			songY = 250
+			songY = 230
 			self.drawSongName(self.surface, songName, (0, 0, 0), songY, self.songNameFont)
 
 
@@ -251,6 +251,21 @@ class UI:
 			mW, mH = image.get_size()
 			self.profileImage = pygame.transform.scale(image, (mW / 3, mH / 3))
 			self.surface.blit(self.profileImage, (155, 150))
+
+			username = pygame.image.load("Images/Username.png")
+			uW, uH = username.get_size()
+			self.username = pygame.transform.scale(username, (uW / 2, uH / 2))
+			self.surface.blit(self.username, (140, 105))
+
+			notes = pygame.image.load("Images/ProfileNoteLine.png")
+			nW, nH = notes.get_size()
+			self.notesLine = pygame.transform.scale(notes, (nW / 2, nH / 2))
+			self.surface.blit(self.notesLine, (40, 250))
+
+			blueLine = pygame.image.load("Images/DarkBlueLine.png")
+			bW, bH = blueLine.get_size()
+			self.line = pygame.transform.scale(blueLine, (bW / 2, bH / 2))
+			self.surface.blit(self.line, (-1, 350))
 
 		pygame.display.update()
 
