@@ -2,3 +2,4 @@
 1 = home screen
 2 = menu active
 3 = profile
+4 = sign up

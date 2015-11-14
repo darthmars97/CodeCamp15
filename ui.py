@@ -37,6 +37,10 @@ class UI:
 							self.screen = 1
 							self.display()
 
+						elif self.signUpRect.collidepoint(mouseX, mouseY):
+							self.screen = 4
+							self.display()
+
 					if self.screen == 1:
 						mouseX, mouseY = event.pos
 
@@ -64,6 +68,17 @@ class UI:
 
 						if self.backRect.collidepoint(mouseX, mouseY):
 							self.screen = 2
+							self.display()
+
+					if self.screen == 4:
+						mouseX, mouseY = event.pos
+
+						if self.enterRect.collidepoint(mouseX, mouseY):
+							self.screen = 1
+							self.display()
+
+						if self.logInRect.collidepoint(mouseX, mouseY):
+							self.screen = 0
 							self.display()
 
 				if event.type == QUIT:
@@ -276,6 +291,50 @@ class UI:
 			rW, rH = refresh.get_size()
 			self.refresh = pygame.transform.scale(refresh, (rW / 2, rH / 2))
 			self.surface.blit(self.refresh, (self.width - 100, 360))
+			self.refreshRect = Rect(self.width - 100, 360, rW / 2, rH / 2)
+
+		elif self.screen == 4:
+
+			background = pygame.image.load("Images/LoginPage.png")
+			loginW, loginH = background.get_size()
+			self.background = pygame.transform.scale(background, (loginW / 2, loginH / 2))
+			self.surface.blit(self.background, (-10, -9))
+
+			welcome = pygame.image.load("Images/WhoAreYou.png")
+			wW, wH = welcome.get_size()
+			self.welcome = pygame.transform.scale(welcome, (wW / 2, wH / 2))
+			self.surface.blit(self.welcome, (80, 360))
+
+			username = pygame.image.load("Images/Username.png")
+			uW, uH = username.get_size()
+			self.username = pygame.transform.scale(username, (uW / 2, uH / 2))
+			self.surface.blit(self.username, (70, 410))
+
+			userText = pygame.image.load("Images/LoginTextBox.png")
+			userW, userH = userText.get_size()
+			self.userText = pygame.transform.scale(userText, (userW / 3, userH / 3))
+			self.surface.blit(self.userText, (60, 440))
+
+			password = pygame.image.load("Images/Password.png")
+			passW, passH = password.get_size()
+			self.password = pygame.transform.scale(password, (passW / 2, passH / 2))
+			self.surface.blit(self.password, (70, 480))
+
+			passField = pygame.image.load("Images/LoginTextBox.png")
+			self.passField = pygame.transform.scale(passField, (userW / 3, userH / 3))
+			self.surface.blit(self.passField, (60, 510))
+
+			enter = pygame.image.load("Images/EnterButton.png")
+			enterW, enterH = enter.get_size()
+			self.enter = pygame.transform.scale(enter, (enterW / 3, enterH / 3))
+			self.surface.blit(self.enter, (140, 550))
+			self.enterRect = Rect(140, 550, enterW / 3, enterH / 3)
+
+			logIn = pygame.image.load("Images/LoginButton.png")
+			signUpW, signUpH = logIn.get_size()
+			self.logIn = pygame.transform.scale(logIn, (signUpW / 3, signUpH / 3))
+			self.surface.blit(self.logIn, (self.width - 150, 630))
+			self.logInRect = Rect(self.width - 150, 630, signUpW / 3, signUpH / 3)
 
 		pygame.display.update()
 
