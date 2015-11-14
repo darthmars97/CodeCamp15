@@ -12,7 +12,10 @@ class Song(object):
         self.value = value
 
     def pop_formula(self):
-        pass
+        value =
+
+
+
 song = Song("Rolling in the deep - Adele", 50, 10)
 
-print song.popularity
+print song.popularity, song.name, song.value
