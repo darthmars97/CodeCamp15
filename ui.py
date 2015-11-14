@@ -15,7 +15,7 @@ class UI:
 		self.fpsClock = pygame.time.Clock()
 		self.surface = pygame.display.set_mode((self.width, self.height))
 		self.surface.fill((255, 255, 255))
-		self.screen = 1
+		self.screen = 2
 		self.display()
 		self.evolve()
 
@@ -80,6 +80,11 @@ class UI:
 			self.newMenuScreen = pygame.transform.scale(menuScreen, (sW, sH))
 			self.newMenuScreen.set_colorkey((99, 99, 99))
 			self.surface.blit(self.newMenuScreen, (-250, -2))
+
+			profileButton = pygame.image.load("Images/ProfileButton.png")
+			pW, pH = profileButton.get_size()
+			self.newProfile = pygame.transform.scale(profileButton, (pW / 3, pH / 3))
+			self.surface.blit(self.newProfile, (self.width - 250, 100))
 
 
 	# def mouseClick(self):
