@@ -4,3 +4,4 @@
 3 = profile
 4 = sign up
 5 = top charts
+6 = buy on home screen

@@ -48,6 +48,10 @@ class UI:
 							self.screen = 2
 							self.display()
 
+						elif self.albumFrameRect.collidepoint(mouseX, mouseY):
+							self.screen = 6
+							self.display()
+
 					if self.screen == 2:
 						mouseX, mouseY = event.pos
 
@@ -92,13 +96,16 @@ class UI:
 							self.screen = 2
 							self.display()
 
+					if self.screen == 6:
+						mouseX, mouseY = event.pos
+
+						if self.albumRect.collidepoint(mouseX, mouseY):
+							self.screen = 1
+							self.display()
+
 				if event.type == QUIT:
 					pygame.quit()
 					sys.exit()
-				elif event.type == KEYDOWN:
-					if event.key == KEY_ESCAPE:
-						pygame.quit()
-						sys.exit()
 			pygame.display.update()
 
 	def drawSongName(self, surface, text, color, y, font):
@@ -188,6 +195,7 @@ class UI:
 			aW, aH = albumFrame.get_size()
 			self.albumFrame = pygame.transform.scale(albumFrame, (aW / 2, aH / 2))
 			self.surface.blit(self.albumFrame, (15, 160))
+			self.albumFrameRect = Rect(15, 160, aW / 2, aH / 2)
 
 			noteLine = pygame.image.load("Images/MainNoteLine.png")
 			lW, lH = noteLine.get_size()
@@ -218,46 +226,61 @@ class UI:
 			self.newNote = pygame.transform.scale(notes, (nW, nH))
 			self.surface.blit(self.newNote, (0, 0))
 
+			mX = self.width - 270
+			mY = -2
+			oX = -58
+			oY = -1
+			pX = self.width - 250
+			pY = 100
+			gX = self.width - 250
+			gY = 170
+			tX = self.width - 250
+			tY = 240
+			sX = self.width - 260
+			sY = 20
+			x = self.width - 220
+			y = self.height - 60
+
 			menuScreen = pygame.image.load("Images/MenuBackgroundBlue.png")
 			sW, sH = menuScreen.get_size()
 			self.newMenuScreen = pygame.transform.scale(menuScreen, (sW, sH))
-			self.surface.blit(self.newMenuScreen, (self.width - 270, -2))
+			self.surface.blit(self.newMenuScreen, (mX, mY))
 
 			overlay = pygame.image.load("Images/MenuBackgroundBlack.png")
 			oW, oH = overlay.get_size()
 			self.newOverlay = pygame.transform.scale(overlay, (oW / 2, oH / 2))
 			self.newOverlay.set_colorkey((99, 99, 99))
-			self.surface.blit(self.newOverlay, (-58, -1))
-			self.overlayRect = Rect(-58, -1, oW / 2, oH / 2)
+			self.surface.blit(self.newOverlay, (oX, oY))
+			self.overlayRect = Rect(oX, oY, oW / 2, oH / 2)
 
 			profileButton = pygame.image.load("Images/ProfileButton.png")
 			pW, pH = profileButton.get_size()
 			self.newProfile = pygame.transform.scale(profileButton, (pW / 3, pH / 3))
-			self.surface.blit(self.newProfile, (self.width - 250, 100))
-			self.profileRect = Rect(self.width - 250, 100, pW / 3, pH / 3)
+			self.surface.blit(self.newProfile, (pX, pY))
+			self.profileRect = Rect(pX, pY, pW / 3, pH / 3)
 
 			groups = pygame.image.load("Images/GroupsButton.png")
 			gW, gH = groups.get_size()
 			self.groupsButton = pygame.transform.scale(groups, (gW / 3, gH / 3))
-			self.surface.blit(self.groupsButton, (self.width - 250, 170))
-			self.groupsRect = Rect(self.width - 250, 170, gW / 3, gH / 3)
+			self.surface.blit(self.groupsButton, (gX, gY))
+			self.groupsRect = Rect(gX, gY, gW / 3, gH / 3)
 
 			top = pygame.image.load("Images/TopChartsButton.png")
 			tW, tH = top.get_size()
 			self.topCharts = pygame.transform.scale(top, (tW / 3, tH / 3))
-			self.surface.blit(self.topCharts, (self.width - 250, 240))
-			self.topRect = Rect(self.width - 250, 240, tW / 3, tH / 3)
+			self.surface.blit(self.topCharts, (tX, tY))
+			self.topRect = Rect(tX, tY, tW / 3, tH / 3)
 
 			search = pygame.image.load("Images/SearchBar.png")
 			sW, sH = search.get_size()
 			self.searchBar = pygame.transform.scale(search, (sW / int(2.7), sH / 2))
-			self.surface.blit(self.searchBar, (self.width - 260, 20))
+			self.surface.blit(self.searchBar, (sX, sY))
 
 			signOut = pygame.image.load("Images/SignOutButton.png")
 			iW, iH = signOut.get_size()
 			self.signOut = pygame.transform.scale(signOut, (iW / 2, iH / 2))
-			self.surface.blit(self.signOut, (self.width - 220, self.height - 60))
-			self.signOutRect = Rect(self.width - 220, self.height - 60, iW / 2, iH / 2)
+			self.surface.blit(self.signOut, (x, y))
+			self.signOutRect = Rect(x, y, iW / 2, iH / 2)
 
 		elif self.screen == 3:
 
@@ -386,6 +409,62 @@ class UI:
 			songName = "Song Name"
 			songY = 210
 			self.drawSongName(self.surface, songName, (0, 0, 0), songY, self.songNameFont)
+
+		elif self.screen == 6:
+
+			self.surface.fill((255, 255, 255))
+
+			navBar = pygame.image.load("Images/NavbarMain.png")
+			nW, nH = navBar.get_size()
+			self.newNav = pygame.transform.scale(navBar, (nW / 3, nH / 2))
+			self.surface.blit(self.newNav, (-5, -2))
+
+			title = pygame.image.load("Images/NoteStocks.png")
+			tW, tH = title.get_size()
+			self.newTitle = pygame.transform.scale(title, (tW / 2, tH / 2))
+			self.surface.blit(self.newTitle, (110, 5))
+
+			menuIcon = pygame.image.load("Images/MenuButtonLong.png")
+			mW, mH = menuIcon.get_size()
+			self.newMenu = pygame.transform.scale(menuIcon, (mW / 2, mH / 2))
+			self.surface.blit(self.newMenu, (self.width - 59, -1))
+			self.menuRect = Rect(self.width - 59, -1, mW / 2, mH / 2)
+
+			notes = pygame.image.load("Images/NoteIcon.png")
+			nW, nH = notes.get_size()
+			self.newNote = pygame.transform.scale(notes, (nW, nH))
+			self.surface.blit(self.newNote, (0, 0))
+
+			hotTracks = pygame.image.load("Images/HotTracks.png")
+			hW, hH = hotTracks.get_size()
+			self.hotTracks = pygame.transform.scale(hotTracks, (hW / 3, hH / 3))
+			self.surface.blit(self.hotTracks, (40, 130))
+
+			albumFrame = pygame.image.load("Images/AlbumFrame.png")
+			aW, aH = albumFrame.get_size()
+			self.albumFrame = pygame.transform.scale(albumFrame, (aW / 2, aH / 2))
+			self.surface.blit(self.albumFrame, (15, 160))
+
+			noteLine = pygame.image.load("Images/MainNoteLine.png")
+			lW, lH = noteLine.get_size()
+			self.noteLine = pygame.transform.scale(noteLine, (lW / 2, lH / 2))
+			self.surface.blit(self.noteLine, (130, 232))
+
+			songName = "Song Name"
+			songY = 230
+			self.drawSongName(self.surface, songName, (0, 0, 0), songY, self.songNameFont)
+
+			buy = pygame.image.load("Images/BuyingOverlay.png")
+			bW, bH = buy.get_size()
+			self.buy = pygame.transform.scale(buy, (bW / 2, bH / 2))
+			self.buy.set_colorkey((99, 99, 99))
+			self.surface.blit(self.buy, (0, 0))
+
+			album = pygame.image.load("Images/AlbumFrame.png")
+			aW, aH = album.get_size()
+			self.album = pygame.transform.scale(album, (aW / 2, aH / 2))
+			self.surface.blit(self.album, (30, 450))
+			self.albumRect = Rect(30, 450, aW / 2, aH / 2)
 
 
 		pygame.display.update()
