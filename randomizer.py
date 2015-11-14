@@ -1,6 +1,8 @@
 import pygame, time, random
 import operator
 import os
+import turtle
+
 
 
 
@@ -36,11 +38,11 @@ songs = {
 	'How Deep Is Your Love - Calvin Harris': 10,
 	'Where Ya At - Future feat Drake': 10,
 }
+hello = []
 
-
-
-rest_count = 0
-while rest_count < 25:
+rest_count = 1 
+def tick():
+	global rest_count
 	#ops = (add, sub)
 	#randomizes + or -
 	#op = random.choice(ops)
@@ -54,27 +56,29 @@ while rest_count < 25:
 		num = songs[ransong]
 		print ransong
 		print "stays same"
+		print num
 	elif rannum == 2:
 		num = songs[ransong] + random.randint(1,5)
 		print ransong
 		print "add"
+		print num
 	elif rannum == 3:
 		num = songs[ransong] - random.randint(1,5)
 		print ransong
 		print "minus"
-
+		print num
 
 
 
 	#rannum = op(songs[ransong], num)
-
+	
 	if num < 0:
 		songs[ransong] = 0
 	elif num >= 0:
 		songs[ransong] = num
 
-	#time.sleep(2)
-	os.system('clear')
+	time.sleep(1)
+	os.system('cls')
 	print rannum
 	sortedx = sorted(songs.items(), key=operator.itemgetter(1))
 	sortedd = sortedx.reverse()
@@ -83,5 +87,13 @@ while rest_count < 25:
 
 	#for i in songs:
 		#print i, songs[i]
-	rest_count += 1
-	print rest_count
+	print rest_count	
+	rest_count = rest_count + 1
+	return rest_count
+
+while rest_count < 7:
+	tick()
+	hello.append(str(songs["Hello - Adele"]))
+	print hello
+
+

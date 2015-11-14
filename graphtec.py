@@ -1,8 +1,61 @@
 # Import a library of functions called 'pygame'
-import pygame
+import pygame, turtle
 from math import pi
-from randomizer import resetcounter
+from randomizer import songs, hello
+import matplotlib.pyplot as plt
 
+
+radius = [1.0, 2.0, 3.0, 4.0, 5.0, 6.0]
+area = [int(hello[0]), int(hello[1]), int(hello[2]), int(hello[3]), int(hello[4]), int(hello[5])]
+square = [20, 4.0, 9.0, 16.0, 25.0, 36.0]
+plt.plot(radius, area, label='lol')
+plt.plot(radius, square, marker='o', linestyle='--', color='r', label='Square')
+plt.xlabel('Time')
+plt.ylabel('Notes')
+plt.title('Stats')
+plt.legend()
+plt.show()
+"""
+def drawBar(t, height):
+     Get turtle t to draw one bar, of height. 
+    t.speed(0)
+    t.begin_fill()               # start filling this shape
+    t.left(90)
+    t.forward(height)
+    t.write(str(height))
+    t.right(90)
+    t.forward(40)
+    t.right(90)
+    t.forward(height)
+    t.left(90)
+    t.end_fill()                 # stop filling this shape
+
+def fillColor(t,height):
+    t.fillcolor('#F9A01B')
+    drawBar(t,height)
+
+
+xs = [songs["Hello - Adele"],songs['Hotline Bling - Drake'],songs['The Hills - The Weeknd'],songs['Sorry - Justin Beiber'],songs['What Do You Mean? - Justin Beiber'],songs['Stiches - Shawn Mendes'],songs['Focus - Ariana Grande']]  # here is the data
+maxheight = max(xs)
+numbars = len(xs)
+border = 10
+
+tess = turtle.Turtle()           # create tess and set some attributes
+#tess.color("blue")
+#tess.fillcolor("red")
+tess.pensize(10)
+
+
+wn = turtle.Screen()             # Set up the window and its attributes
+wn.bgcolor("grey")
+wn.setworldcoordinates(0-border,0-border,40*numbars+border,maxheight+border)
+
+
+for i in xs:
+    fillColor(tess,i)
+
+wn.exitonclick()
+"""
 """
 posx = 100 * resetCounter
 
@@ -12,7 +65,7 @@ points {
     [posx, posy],
 }"""
 # Initialize the game engine
-pygame.init()
+"""pygame.init()
 
 # Define the colors we will use in RGB format
 WHITE = (255, 255, 255)
@@ -53,4 +106,4 @@ while not done:
     pygame.display.flip()
 
 # Be IDLE friendly
-pygame.quit()
+pygame.quit()"""
