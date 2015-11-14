@@ -85,16 +85,23 @@ class UI:
 			self.newNote = pygame.transform.scale(notes, (nW, nH))
 			self.surface.blit(self.newNote, (0, 0))
 
-			menuScreen = pygame.image.load("Images/MenuBackgroundOriginal.png")
+			menuScreen = pygame.image.load("Images/MenuBackgroundBlue.png")
 			sW, sH = menuScreen.get_size()
 			self.newMenuScreen = pygame.transform.scale(menuScreen, (sW, sH))
-			self.newMenuScreen.set_colorkey((99, 99, 99))
-			self.surface.blit(self.newMenuScreen, (-250, -2))
+			self.surface.blit(self.newMenuScreen, (self.width - 270, -2))
+
+			overlay = pygame.image.load("Images/MenuBackgroundBlack.png")
+			oW, oH = overlay.get_size()
+			self.newOverlay = pygame.transform.scale(overlay, (oW / 2, oH / 2))
+			self.newOverlay.set_colorkey((99, 99, 99))
+			self.surface.blit(self.newOverlay, (-58, -1))
 
 			profileButton = pygame.image.load("Images/ProfileButton.png")
 			pW, pH = profileButton.get_size()
 			self.newProfile = pygame.transform.scale(profileButton, (pW / 3, pH / 3))
 			self.surface.blit(self.newProfile, (self.width - 250, 100))
+
+
 
 
 	# def mouseClick(self):
