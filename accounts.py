@@ -2,32 +2,48 @@ import pygame, time, random
 import operator
 import os
 import os.path
-status = "off"
-PIN = ""
+basemoney = "10000"
+money = 0
 name = ""
-def write():
-	ask = raw_input("If you have an account press y and if you dont, press n ")
-	if ask == "y":
-		while status == "off":
-			names = raw_input("Enter your pin: ")+".txt"
-			if os.path.exists(names):
-				name = names
-				status = "on"
-			else:
-				print "This pin does not exist" 
+status = "off"
 
-	elif ask == "n":
-		status = "off"
-		while status == "off":	
-			name = raw_input("Enter your desired 4 digit pin: ")+".txt"
-			os.system('cls')
-			if os.path.exists(name):
-				print "That pin is already taken, try another one"
-			else:
-				open(name, "a")
-				print "Congrats your pin now created"
-				status = "on"
+#LOGIN
+ask = raw_input("If you have an account press y and if you dont, press n ")
+if ask == "y":
+	while status == "off":
+		names = raw_input("Enter your username: ")+".txt"
+		if os.path.exists(names):
+			name = names
+			status = "on"
+		else:
+			print "This username does not exist" 
+#SIGNUP
+elif ask == "n":
+	status = "off"
+	while status == "off":	
+		name = raw_input("Enter your desired username: ")+".txt"
+		os.system('cls')
+		if os.path.exists(name):
+			print "That username is already taken, try another one"
+		else:
+			open(name, "a")
+			print "Congrats your username is now created"
+			status = "on"
 
+#IF FILE IS EMPTY PUT 0 IN IT
+money = open(name, "r").read()
+while status == "on":
+	if os.stat(name).st_size == 0:
+		with open(name, "w") as myfile:
+			myfile.write(basemoney)
 	else:
-		print "print y or n dummy"
-write()
+		pass
+print money
+
+#ADDS THE NUMBER TO THE FILE 
+	filen = open(name, "w")
+	added = str(money)
+	with open(name, "w") as myfile:
+		myfile.write(added)
+name.close()
+
