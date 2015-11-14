@@ -458,13 +458,28 @@ class UI:
 			bW, bH = buy.get_size()
 			self.buy = pygame.transform.scale(buy, (bW / 2, bH / 2))
 			self.buy.set_colorkey((99, 99, 99))
-			self.surface.blit(self.buy, (0, 0))
+			self.surface.blit(self.buy, (0, -120))
 
 			album = pygame.image.load("Images/AlbumFrame.png")
 			aW, aH = album.get_size()
 			self.album = pygame.transform.scale(album, (aW / 2, aH / 2))
-			self.surface.blit(self.album, (30, 450))
-			self.albumRect = Rect(30, 450, aW / 2, aH / 2)
+			self.surface.blit(self.album, (10, 330))
+			self.albumRect = Rect(30, 330, aW / 2, aH / 2)
+
+			line = pygame.image.load("Images/BuyingLine.png")
+			lW, lH = line.get_size()
+			self.line = pygame.transform.scale(line, (lW / 2, lH / 2))
+			self.surface.blit(self.line, (-5, 480))
+
+			buyText = pygame.image.load("Images/BuyNotes.png")
+			tW, tH = buyText.get_size()
+			self.buyText = pygame.transform.scale(buyText, (tW / 2, tH / 2))
+			self.surface.blit(self.buyText, (150, 500))
+
+			buy10 = pygame.image.load("Images/10Button.png")
+			b10W, b10H = buy10.get_size()
+			self.buy10 = pygame.transform.scale(buy10, (b10W / 3, b10H / 3))
+			self.surface.blit(self.buy10, (155, 545))
 
 
 		pygame.display.update()
