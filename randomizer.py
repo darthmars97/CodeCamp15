@@ -37,12 +37,10 @@ songs = {
 	'Where Ya At - Future feat Drake': 10,
 }
 
-rest_count = 0
 
 
-while rest_count <= 4:
-	print rest_count
-
+rest_count = 0 
+while rest_count < 20:
 	#ops = (add, sub)
 	#randomizes + or -
 	#op = random.choice(ops)
@@ -54,23 +52,28 @@ while rest_count <= 4:
 	num = 0
 	if rannum == 1:
 		num = songs[ransong]
+		print ransong
+		print "stays same"
 	elif rannum == 2:
 		num = songs[ransong] + random.randint(1,5)
+		print ransong
+		print "add"
 	elif rannum == 3:
 		num = songs[ransong] - random.randint(1,5)
+		print ransong
+		print "minus"
+
+
 
 
 	#rannum = op(songs[ransong], num)
-
+	
 	if num < 0:
 		songs[ransong] = 0
 	elif num >= 0:
 		songs[ransong] = num
-	if rest_count <= 4:
-		print "your mom"
-		rest_count +=1
-		print rest_count
-		time.sleep(2)
+
+	time.sleep(2)
 	os.system('cls')
 	print rannum
 	sortedx = sorted(songs.items(), key=operator.itemgetter(1))
@@ -79,6 +82,8 @@ while rest_count <= 4:
 		print i
 
 	#for i in songs:
-		#print i, songs[i]
+		#print i, songs[i]	
+	rest_count += 1
+
 
 
