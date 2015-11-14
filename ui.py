@@ -267,18 +267,18 @@ class UI:
 			self.line = pygame.transform.scale(blueLine, (bW / 2, bH / 2))
 			self.surface.blit(self.line, (-1, 350))
 
+			graph = pygame.image.load("Images/Progress Graph.png")
+			gW, gH = graph.get_size()
+			self.graph = pygame.transform.scale(graph, (gW / 3, gH / 3))
+			self.surface.blit(self.graph, (5, 380))
+
+			refresh = pygame.image.load("Images/RefreshButton.png")
+			rW, rH = refresh.get_size()
+			self.refresh = pygame.transform.scale(refresh, (rW / 2, rH / 2))
+			self.surface.blit(self.refresh, (self.width - 100, 360))
+
 		pygame.display.update()
 
-
-
-
-	# def mouseClick(self):
-	# 	mouseX, mouseY = event.pos()
-	# 	if self.newNav.collidepoint(mouseX, mouseY):
-	# 		print "clicked on nav bar"
-
-	# 	if self.newMenu.collidepoint(mouseX, mouseY):
-	# 		print "clicked on menu icon"
 
 
 if __name__ == "__main__":
