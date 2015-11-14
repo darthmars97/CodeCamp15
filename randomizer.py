@@ -75,6 +75,7 @@ hello = []
 rest_count = 1
 def tick():
 	global rest_count
+	global songs 
 	#ops = (add, sub)
 	#randomizes + or -
 	#op = random.choice(ops)
@@ -128,4 +129,4 @@ def main():
 		hello.append(str(songs["Hello - Adele"]))
 		print hello
 if __name__ == "__main__":
-	main() 
+	main()
