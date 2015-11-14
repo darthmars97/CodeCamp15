@@ -30,17 +30,17 @@ class UI:
 						mouseX, mouseY = event.pos
 
 						if self.menuRect.collidepoint(mouseX, mouseY):
-							print self.newMenu.get_rect()
-							print mouseX, mouseY
-							print "clicked on menu icon"
 							self.screen = 2
-							print self.screen
 							self.display()
 							pygame.display.update()
-							print "I'm Working properly Matt! :D"
 
-						elif self.newNav.get_rect().collidepoint(mouseX, mouseY):
-							print "clicked on nav bar"
+					if self.screen == 2:
+						mouseX, mouseY = event.pos
+
+						if self.overlayRect.collidepoint(mouseX, mouseY):
+							self.screen = 1
+							self.display()
+							pygame.display.update()
 
 				if event.type == QUIT:
 					pygame.quit()
@@ -49,6 +49,8 @@ class UI:
 
 	def display(self):
 		if self.screen == 1:
+
+			self.surface.fill((255, 255, 255))
 
 			navBar = pygame.image.load("Images/NavbarMain.png")
 			nW, nH = navBar.get_size()
@@ -98,11 +100,16 @@ class UI:
 			self.newOverlay = pygame.transform.scale(overlay, (oW / 2, oH / 2))
 			self.newOverlay.set_colorkey((99, 99, 99))
 			self.surface.blit(self.newOverlay, (-58, -1))
+			self.overlayRect = Rect(-58, -1, oW / 2, oH / 2)
 
 			profileButton = pygame.image.load("Images/ProfileButton.png")
 			pW, pH = profileButton.get_size()
 			self.newProfile = pygame.transform.scale(profileButton, (pW / 3, pH / 3))
 			self.surface.blit(self.newProfile, (self.width - 250, 100))
+
+		elif self.screen == 3:
+
+			
 
 
 
