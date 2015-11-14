@@ -14,7 +14,9 @@ class UI:
 		self.height = height
 		self.fps = fps
 		self.fpsClock = pygame.time.Clock()
+		self.scroll = 0
 		self.surface = pygame.display.set_mode((self.width, self.height))
+		# self.intermediate = pygame.surface.Surface(self.width, self.height + 600)
 		self.surface.fill((255, 255, 255))
 		self.screen = 1
 		self.display()
@@ -122,6 +124,28 @@ class UI:
 			self.newProfile = pygame.transform.scale(profileButton, (pW / 3, pH / 3))
 			self.surface.blit(self.newProfile, (self.width - 250, 100))
 			self.profileRect = Rect(self.width - 250, 100, pW / 3, pH / 3)
+
+			groups = pygame.image.load("Images/GroupsButton.png")
+			gW, gH = groups.get_size()
+			self.groupsButton = pygame.transform.scale(groups, (gW / 3, gH / 3))
+			self.surface.blit(self.groupsButton, (self.width - 250, 170))
+			self.groupsRect = Rect(self.width - 250, 170, gW / 3, gH / 3)
+
+			top = pygame.image.load("Images/TopChartsButton.png")
+			tW, tH = top.get_size()
+			self.topCharts = pygame.transform.scale(top, (tW / 3, tH / 3))
+			self.surface.blit(self.topCharts, (self.width - 250, 240))
+			self.topRect = Rect(self.width - 250, 240, tW / 3, tH / 3)
+
+			search = pygame.image.load("Images/SearchBar.png")
+			sW, sH = search.get_size()
+			self.searchBar = pygame.transform.scale(search, (sW / int(2.7), sH / 2))
+			self.surface.blit(self.searchBar, (self.width - 260, 20))
+
+			signOut = pygame.image.load("Images/SignOutButton.png")
+			iW, iH = signOut.get_size()
+			self.signOut = pygame.transform.scale(signOut, (iW / 2, iH / 2))
+			self.surface.blit(self.signOut, (self.width - 220, self.height - 60))
 
 		elif self.screen == 3:
 
