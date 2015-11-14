@@ -107,6 +107,12 @@ class UI:
 			self.surface.blit(self.enter, (140, 550))
 			self.enterRect = Rect(140, 550, enterW / 3, enterH / 3)
 
+			signUp = pygame.image.load("Images/SignUpButton.png")
+			signUpW, signUpH = signUp.get_size()
+			self.signUp = pygame.transform.scale(signUp, (signUpW / 3, signUpH / 3))
+			self.surface.blit(self.signUp, (0, 630))
+			self.signUpRect = Rect(0, 630, signUpW / 3, signUpH / 3)
+
 		elif self.screen == 1:
 
 			self.surface.fill((255, 255, 255))
@@ -131,6 +137,21 @@ class UI:
 			nW, nH = notes.get_size()
 			self.newNote = pygame.transform.scale(notes, (nW, nH))
 			self.surface.blit(self.newNote, (0, 0))
+
+			hotTracks = pygame.image.load("Images/HotTracks.png")
+			hW, hH = hotTracks.get_size()
+			self.hotTracks = pygame.transform.scale(hotTracks, (hW / 3, hH / 3))
+			self.surface.blit(self.hotTracks, (40, 130))
+
+			albumFrame = pygame.image.load("Images/AlbumFrame.png")
+			aW, aH = albumFrame.get_size()
+			self.albumFrame = pygame.transform.scale(albumFrame, (aW / 2, aH / 2))
+			self.surface.blit(self.albumFrame, (20, 160))
+
+			noteLine = pygame.image.load("Images/MainNoteLine.png")
+			lW, lH = noteLine.get_size()
+			self.noteLine = pygame.transform.scale(noteLine, (lW / 2, lH / 2))
+			self.surface.blit(self.noteLine, (130, 232))
 
 		elif self.screen == 2:
 
