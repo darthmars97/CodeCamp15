@@ -38,17 +38,11 @@ songs = {
 	'How Deep Is Your Love - Calvin Harris': 10,
 	'Where Ya At - Future feat Drake': 10,
 }
+hello = []
 
-
-
-<<<<<<< HEAD
 rest_count = 1 
 def tick():
 	global rest_count
-=======
-rest_count = 0
-while rest_count < 25:
->>>>>>> origin/master
 	#ops = (add, sub)
 	#randomizes + or -
 	#op = random.choice(ops)
@@ -77,19 +71,14 @@ while rest_count < 25:
 
 
 	#rannum = op(songs[ransong], num)
-
+	
 	if num < 0:
 		songs[ransong] = 0
 	elif num >= 0:
 		songs[ransong] = num
 
-<<<<<<< HEAD
-	time.sleep(4)
+	time.sleep(1)
 	os.system('cls')
-=======
-	#time.sleep(2)
-	os.system('clear')
->>>>>>> origin/master
 	print rannum
 	sortedx = sorted(songs.items(), key=operator.itemgetter(1))
 	sortedd = sortedx.reverse()
@@ -98,15 +87,13 @@ while rest_count < 25:
 
 	#for i in songs:
 		#print i, songs[i]
-<<<<<<< HEAD
 	print rest_count	
 	rest_count = rest_count + 1
 	return rest_count
+
 while rest_count < 5:
 	tick()
+	hello.extend(str(songs["Hello - Adele"]))
+	print hello
 
 
-=======
-	rest_count += 1
-	print rest_count
->>>>>>> origin/master
