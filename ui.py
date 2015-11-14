@@ -108,10 +108,10 @@ class UI:
 					sys.exit()
 			pygame.display.update()
 
-	def drawSongName(self, surface, text, color, y, font):
+	def drawSongName(self, surface, text, color, x, y, font):
 		textobj = font.render(text, False, color)
 		textrect = textobj.get_rect()
-		textrect.bottomleft = (135, y)
+		textrect.bottomleft = (x, y)
 		surface.blit(textobj, textrect)
 		return
 
@@ -204,7 +204,8 @@ class UI:
 
 			songName = "Song Name"
 			songY = 230
-			self.drawSongName(self.surface, songName, (0, 0, 0), songY, self.songNameFont)
+			songX = 135
+			self.drawSongName(self.surface, songName, (0, 0, 0), songX, songY, self.songNameFont)
 
 
 		elif self.screen == 2:
@@ -408,7 +409,8 @@ class UI:
 
 			songName = "Song Name"
 			songY = 210
-			self.drawSongName(self.surface, songName, (0, 0, 0), songY, self.songNameFont)
+			songX = 135
+			self.drawSongName(self.surface, songName, (0, 0, 0), songX, songY, self.songNameFont)
 
 		elif self.screen == 6:
 
@@ -452,7 +454,8 @@ class UI:
 
 			songName = "Song Name"
 			songY = 230
-			self.drawSongName(self.surface, songName, (0, 0, 0), songY, self.songNameFont)
+			songX = 135
+			self.drawSongName(self.surface, songName, (0, 0, 0), songX, songY, self.songNameFont)
 
 			buy = pygame.image.load("Images/BuyingOverlay.png")
 			bW, bH = buy.get_size()
@@ -490,6 +493,25 @@ class UI:
 			b100W, b100H = buy100.get_size()
 			self.buy100 = pygame.transform.scale(buy100, (b100W / 3, b100H / 3))
 			self.surface.blit(self.buy100, (250, 537))
+
+			sellText = pygame.image.load("Images/SellNotes.png")
+			sellW, sellH = sellText.get_size()
+			self.sellText = pygame.transform.scale(sellText, (sellW / 2, sellH / 2))
+			self.surface.blit(self.sellText, (150, 600))
+
+			self.sell10 = self.buy10
+			self.surface.blit(self.sell10, (155, 640))
+
+			self.sell1 = self.buy1
+			self.surface.blit(self.sell1, (70, 645))
+
+			self.sell100 = self.buy100
+			self.surface.blit(self.sell100, (250, 630))
+
+			text = "Name of Song"
+			textY = 490
+			textX = 10
+			self.drawSongName(self.surface, text, (255, 255, 255), textX, textY, self.songNameFont)
 
 
 		pygame.display.update()
