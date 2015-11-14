@@ -12,6 +12,7 @@ class UI:
 		pygame.font.init()
 		pygame.display.set_caption("StockNotes")
 		self.songNameFont = pygame.font.SysFont("Gujarati Sangam MN", 26)
+		self.notesFont = pygame.font.SysFont("Gujarati Sangam MN", 36)
 		self.width = width
 		self.height = height
 		self.fps = fps
@@ -115,6 +116,13 @@ class UI:
 		surface.blit(textobj, textrect)
 		return
 
+	def drawMainNotes(self, surface, text, color, x, y, font):
+		textobj = font.render(text, False, color)
+		textrect = textobj.get_rect()
+		textrect.bottomleft = (x, y)
+		surface.blit(textobj, textrect)
+		return
+
 
 	def display(self):
 
@@ -206,6 +214,11 @@ class UI:
 			songY = 230
 			songX = 135
 			self.drawSongName(self.surface, songName, (0, 0, 0), songX, songY, self.songNameFont)
+
+			notes = 2048
+			notesX = 100
+			notesY = 100
+			self.drawMainNotes(self.surface, str(notes), (255, 255, 255), notesX, notesY, self.notesFont)
 
 
 		elif self.screen == 2:
