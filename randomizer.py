@@ -40,7 +40,8 @@ songs = {
 rest_count = 0
 
 
-def tick():
+while rest_count <= 4:
+	print rest_count
 
 	#ops = (add, sub)
 	#randomizes + or -
@@ -68,9 +69,9 @@ def tick():
 	if rest_count <= 4:
 		print "your mom"
 		rest_count +=1
-		print restCount
+		print rest_count
 		time.sleep(2)
-	os.system('clear')
+	os.system('cls')
 	print rannum
 	sortedx = sorted(songs.items(), key=operator.itemgetter(1))
 	sortedd = sortedx.reverse()
@@ -81,6 +82,3 @@ def tick():
 		#print i, songs[i]
 
 
-while rest_count <= 4:
-	print rest_count
-	tick()
