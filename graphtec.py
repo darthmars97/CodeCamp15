@@ -1,8 +1,55 @@
 # Import a library of functions called 'pygame'
-import pygame
+import pygame, turtle
 from math import pi
-from randomizer import resetcounter
+from randomizer import songs
+print songs["Hello - Adele"]
+import matplotlib.pyplot as plt
 
+
+plt.plot([1,2,3,4])
+plt.ylabel('some numbers')
+plt.show()
+"""
+def drawBar(t, height):
+     Get turtle t to draw one bar, of height. 
+    t.speed(0)
+    t.begin_fill()               # start filling this shape
+    t.left(90)
+    t.forward(height)
+    t.write(str(height))
+    t.right(90)
+    t.forward(40)
+    t.right(90)
+    t.forward(height)
+    t.left(90)
+    t.end_fill()                 # stop filling this shape
+
+def fillColor(t,height):
+    t.fillcolor('#F9A01B')
+    drawBar(t,height)
+
+
+xs = [songs["Hello - Adele"],songs['Hotline Bling - Drake'],songs['The Hills - The Weeknd'],songs['Sorry - Justin Beiber'],songs['What Do You Mean? - Justin Beiber'],songs['Stiches - Shawn Mendes'],songs['Focus - Ariana Grande']]  # here is the data
+maxheight = max(xs)
+numbars = len(xs)
+border = 10
+
+tess = turtle.Turtle()           # create tess and set some attributes
+#tess.color("blue")
+#tess.fillcolor("red")
+tess.pensize(10)
+
+
+wn = turtle.Screen()             # Set up the window and its attributes
+wn.bgcolor("grey")
+wn.setworldcoordinates(0-border,0-border,40*numbars+border,maxheight+border)
+
+
+for i in xs:
+    fillColor(tess,i)
+
+wn.exitonclick()
+"""
 """
 posx = 100 * resetCounter
 
@@ -12,7 +59,7 @@ points {
     [posx, posy],
 }"""
 # Initialize the game engine
-pygame.init()
+"""pygame.init()
 
 # Define the colors we will use in RGB format
 WHITE = (255, 255, 255)
@@ -53,4 +100,4 @@ while not done:
     pygame.display.flip()
 
 # Be IDLE friendly
-pygame.quit()
+pygame.quit()"""

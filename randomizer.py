@@ -1,6 +1,8 @@
 import pygame, time, random
 import operator
 import os
+import turtle
+
 
 
 
@@ -39,8 +41,9 @@ songs = {
 
 
 
-rest_count = 0 
-while rest_count < 20:
+rest_count = 1 
+def tick():
+	global rest_count
 	#ops = (add, sub)
 	#randomizes + or -
 	#op = random.choice(ops)
@@ -54,15 +57,17 @@ while rest_count < 20:
 		num = songs[ransong]
 		print ransong
 		print "stays same"
+		print num
 	elif rannum == 2:
 		num = songs[ransong] + random.randint(1,5)
 		print ransong
 		print "add"
+		print num
 	elif rannum == 3:
 		num = songs[ransong] - random.randint(1,5)
 		print ransong
 		print "minus"
-
+		print num
 
 
 
@@ -73,7 +78,7 @@ while rest_count < 20:
 	elif num >= 0:
 		songs[ransong] = num
 
-	time.sleep(2)
+	time.sleep(4)
 	os.system('cls')
 	print rannum
 	sortedx = sorted(songs.items(), key=operator.itemgetter(1))
@@ -82,8 +87,11 @@ while rest_count < 20:
 		print i
 
 	#for i in songs:
-		#print i, songs[i]	
-	rest_count += 1
-
+		#print i, songs[i]
+	print rest_count	
+	rest_count = rest_count + 1
+	return rest_count
+while rest_count < 5:
+	tick()
 
 
