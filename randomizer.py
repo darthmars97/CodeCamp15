@@ -36,7 +36,7 @@ songs = {
 	'How Deep Is Your Love - Calvin Harris': 10,
 	'Where Ya At - Future feat Drake': 10,
 }
-print songs[]
+
 
 
 
