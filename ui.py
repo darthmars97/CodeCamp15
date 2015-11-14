@@ -31,7 +31,10 @@ class UI:
 
 						if self.newMenu.get_rect().collidepoint(mouseX, mouseY):
 							print "clicked on menu icon"
-							self.screen == 2
+							self.screen = 2
+							print self.screen
+							pygame.display.update()
+							print "I'm Working properly Matt! :D"
 
 						elif self.newNav.get_rect().collidepoint(mouseX, mouseY):
 							print "clicked on nav bar"
@@ -46,7 +49,7 @@ class UI:
 
 			navBar = pygame.image.load("Images/NavbarMain.png")
 			nW, nH = navBar.get_size()
-			self.newNav = pygame.transform.scale(navBar, (nW / 3, nH / 2))
+			self.newNav = pygame.transform.scale(navBar, (nW / 2, nH / 2))
 			self.surface.blit(self.newNav, (-1, -2))
 
 			title = pygame.image.load("Images/NoteStocks.png")
