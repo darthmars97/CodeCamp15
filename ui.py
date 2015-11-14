@@ -34,7 +34,6 @@ class UI:
 						if self.enterRect.collidepoint(mouseX, mouseY):
 							self.screen = 1
 							self.display()
-							pygame.display.update()
 
 					if self.screen == 1:
 						mouseX, mouseY = event.pos
@@ -42,7 +41,6 @@ class UI:
 						if self.menuRect.collidepoint(mouseX, mouseY):
 							self.screen = 2
 							self.display()
-							pygame.display.update()
 
 					if self.screen == 2:
 						mouseX, mouseY = event.pos
@@ -50,12 +48,14 @@ class UI:
 						if self.overlayRect.collidepoint(mouseX, mouseY):
 							self.screen = 1
 							self.display()
-							pygame.display.update()
 
 						elif self.profileRect.collidepoint(mouseX, mouseY):
 							self.screen = 3
 							self.display()
-							pygame.display.update()
+
+						elif self.signOutRect.collidepoint(mouseX, mouseY):
+							self.screen = 0
+							self.display()
 
 					if self.screen == 3:
 						mouseX, mouseY = event.pos
@@ -63,7 +63,6 @@ class UI:
 						if self.backRect.collidepoint(mouseX, mouseY):
 							self.screen = 2
 							self.display()
-							pygame.display.update()
 
 				if event.type == QUIT:
 					pygame.quit()
@@ -191,6 +190,7 @@ class UI:
 			iW, iH = signOut.get_size()
 			self.signOut = pygame.transform.scale(signOut, (iW / 2, iH / 2))
 			self.surface.blit(self.signOut, (self.width - 220, self.height - 60))
+			self.signOutRect = Rect(self.width - 220, self.height - 60, iW / 2, iH / 2)
 
 		elif self.screen == 3:
 
@@ -211,6 +211,8 @@ class UI:
 			mW, mH = image.get_size()
 			self.profileImage = pygame.transform.scale(image, (mW / 3, mH / 3))
 			self.surface.blit(self.profileImage, (155, 150))
+
+		pygame.display.update()
 
 
 
