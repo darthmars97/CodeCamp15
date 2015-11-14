@@ -38,9 +38,41 @@ songs = {
 	'How Deep Is Your Love - Calvin Harris': 10,
 	'Where Ya At - Future feat Drake': 10,
 }
+
+s1 = songs['Hello - Adele']
+s2 = songs['Hotline Bling - Drake']
+s3 = songs['The Hills - The Weeknd']
+s4 = songs['Sorry - Justin Beiber']
+s5 = songs['What Do You Mean? - Justin Beiber']
+s6 = songs['Stiches - Shawn Mendes']
+s7 = songs['Focus - Ariana Grande']
+s8 = songs['Wildest Dreams - Taylor Swift']
+s9 = songs['679 - Fetty Wap']
+s10 = songs['Like Im Gonna Lose You - Meghan Trainor']
+s11 = songs['Locked Away - R. City']
+s12 = songs['Exs & Ohs - Elle King']
+s13 = songs['Here - Alessia Cara']
+s14 = songs['Cant Feel My Face - The Weeknd']
+s15 = songs['Watch Me - Silento']
+s16 = songs['Jumpman - Drake & Future']
+s17 = songs['Same Old Love - Selena Gomez']
+s18 = songs['On My Mind - Ellie Goulding']
+s19 = songs['Lean On - Major Lazer & DJ Snake']
+s20 = songs['Renegades - X Ambassadors']
+s21 = songs['Downtown']
+s22 = songs['Hit The Quan - iLoveMemphis']
+s23 = songs['Tennessee Whiskey']
+s24 = songs['Trap Queen - Fetty Wap']
+s25 = songs['Good For You - Selena Gomez']
+s26 = songs['Drag Me Down - One Direction']
+s27 = songs['Antidote - Travi$ Scott']
+s28 = songs['Die A Happy Man - Thomas Rhett']
+s29 = songs['How Deep Is Your Love - Calvin Harris']
+s30 = songs['Where Ya At - Future feat Drake']
+
 hello = []
 
-rest_count = 1 
+rest_count = 1
 def tick():
 	global rest_count
 	#ops = (add, sub)
@@ -71,7 +103,7 @@ def tick():
 
 
 	#rannum = op(songs[ransong], num)
-	
+
 	if num < 0:
 		songs[ransong] = 0
 	elif num >= 0:
@@ -87,7 +119,7 @@ def tick():
 
 	#for i in songs:
 		#print i, songs[i]
-	print rest_count	
+	print rest_count
 	rest_count = rest_count + 1
 	return rest_count
 
@@ -95,5 +127,3 @@ while rest_count < 7:
 	tick()
 	hello.append(str(songs["Hello - Adele"]))
 	print hello
-
-
