@@ -87,19 +87,19 @@ def tick():
 	num = 0
 	if rannum == 1:
 		num = songs[ransong]
-		print ransong
-		print "stays same"
-		print num
+		# print ransong
+		# print "stays same"
+		# print num
 	elif rannum == 2:
 		num = songs[ransong] + random.randint(1,5)
-		print ransong
-		print "add"
-		print num
+		# print ransong
+		# print "add"
+		# print num
 	elif rannum == 3:
 		num = songs[ransong] - random.randint(1,5)
-		print ransong
-		print "minus"
-		print num
+		# print ransong
+		# print "minus"
+		# print num
 
 
 
@@ -110,9 +110,8 @@ def tick():
 	elif num >= 0:
 		songs[ransong] = num
 
-	time.sleep(1)
+	time.sleep(.3)
 	os.system('cls')
-	print rannum
 	sortedx = sorted(songs.items(), key=operator.itemgetter(1))
 	sortedd = sortedx.reverse()
 	for i in sortedx:
@@ -120,13 +119,11 @@ def tick():
 
 	#for i in songs:
 		#print i, songs[i]
-	print rest_count
 	rest_count = rest_count + 1
 	return rest_count
 def main():
-	while rest_count < 7:
+	while rest_count < 1000:
 		tick()
-		hello.append(str(songs["Hello - Adele"]))
-		print hello
+		#hello.append(str(songs["Hello - Adele"]))
 if __name__ == "__main__":
 	main()

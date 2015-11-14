@@ -4,17 +4,17 @@ from math import pi
 from randomizer import songs, hello
 import matplotlib.pyplot as plt
 
-
-radius = [1.0, 2.0, 3.0, 4.0, 5.0, 6.0]
-area = [int(hello[0]), int(hello[1]), int(hello[2]), int(hello[3]), int(hello[4]), int(hello[5])]
-plt.plot(radius, area, label='Hello - Adele')
-ax = plt.gca()
-ax.set_axis_bgcolor('#A0A0A0')
-plt.xlabel('Time')
-plt.ylabel('Notes')
-plt.title('Stats')
-plt.legend()
-plt.show()
+def dgraph():
+    radius = [1.0, 2.0, 3.0, 4.0, 5.0, 6.0]
+    area = [int(hello[0]), int(hello[1]), int(hello[2]), int(hello[3]), int(hello[4]), int(hello[5])]
+    plt.plot(radius, area, label='Hello - Adele')
+    ax = plt.gca()
+    ax.set_axis_bgcolor('#A0A0A0')
+    plt.xlabel('Time')
+    plt.ylabel('Notes')
+    plt.title('Stats')
+    plt.legend()
+    plt.show()
 """
 def drawBar(t, height):
      Get turtle t to draw one bar, of height. 
