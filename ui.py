@@ -1,6 +1,7 @@
 import pygame, sys
 from pygame.locals import *
 import time
+from graphtec import *
 
 # This controls user interface
 
@@ -24,7 +25,7 @@ class UI:
 		while self.running:
 			for event in pygame.event.get():
 				if event.type == pygame.MOUSEBUTTONDOWN:
-					
+
 					if self.screen == 1:
 						mouseX, mouseY = event.pos
 
